@@ -4,11 +4,14 @@ import { PATHS } from '../../constant';
 import * as Styled from './style';
 import { RootState } from '../../logic/reducers/store';
 import CreateContactModal from '../createContactModal';
+import EditContactModal from '../editContactModal';
 
 const SidebarLayout = () => {
   const navigate = useNavigate();
 
-  const { contactModal } = useSelector((state: RootState) => state.contact);
+  const { contactModal, editContactModal } = useSelector(
+    (state: RootState) => state.contact
+  );
 
   return (
     <>
@@ -23,6 +26,7 @@ const SidebarLayout = () => {
         </ul>
       </Styled.SideBarContainer>
       {contactModal && <CreateContactModal />}
+      {editContactModal && <EditContactModal />}
     </>
   );
 };

@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteContactData,
+  getContactId,
   toggleCreateContactModal,
+  toggleEditContactModal,
 } from '../../logic/actions/appActions';
 import { RootState } from '../../logic/reducers/store';
 import { ContactData } from '../../types';
@@ -11,8 +13,6 @@ const Contacts = () => {
   const dispatch = useDispatch();
 
   const { contactData } = useSelector((state: RootState) => state.contact);
-
-  console.log(contactData);
 
   return (
     <Styled.ContactContainer>
@@ -28,7 +28,13 @@ const Contacts = () => {
               <div>{data.firstName}</div>
               <div>{data.lastName}</div>
               <div>Status: {data.active}</div>
-              <button>Edit</button>
+              <button
+                onClick={() => {
+                  dispatch(getContactId(data.id));
+                  dispatch(toggleEditContactModal(true));
+                }}>
+                Edit
+              </button>
               <button onClick={() => dispatch(deleteContactData(data.id))}>
                 Delete
               </button>
