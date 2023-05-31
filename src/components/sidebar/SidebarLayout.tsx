@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { PATHS } from '../../constant';
-import * as Styled from './style';
 import { RootState } from '../../logic/reducers/store';
 import CreateContactModal from '../createContactModal';
 import EditContactModal from '../editContactModal';
+import * as Styled from './style';
 
 const SidebarLayout = () => {
   const navigate = useNavigate();

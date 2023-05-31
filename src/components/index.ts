@@ -1,6 +1,6 @@
 import Loader from './loader';
 import Contacts from './contacts';
-import Chart from './chart';
+import ChartComponent from './chart';
 import SidebarLayout from './sidebar';
 
-export { Loader, Contacts, Chart, SidebarLayout };
+export { Loader, Contacts, ChartComponent, SidebarLayout };
